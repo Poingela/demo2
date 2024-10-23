@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.ScoreDto;
-import com.example.demo.dto.StudentDTo;
+import com.example.demo.dto.StudentDTO;
 import com.example.demo.entity.Score;
 import com.example.demo.entity.Student;
 import com.example.demo.repository.ScoreRepository;
@@ -68,7 +68,7 @@ public class StudentService {
     }
 
 
-    public List<Student> getStudentByNameAndAge(StudentDTo studentDTo) throws  Exception{
+    public List<Student> getStudentByNameAndAge(StudentDTO studentDTo) throws  Exception{
 
         List<Student> students = studentRepository.findByNameAndAge(studentDTo.getName(),studentDTo.getAge());
 

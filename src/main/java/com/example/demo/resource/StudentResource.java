@@ -2,7 +2,7 @@ package com.example.demo.resource;
 
 
 import com.example.demo.dto.ScoreDto;
-import com.example.demo.dto.StudentDTo;
+import com.example.demo.dto.StudentDTO;
 import com.example.demo.entity.Student;
 import com.example.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +56,7 @@ public class StudentResource {
     }
 
     @PostMapping("getStudentByNameAndAge")
-    public ResponseEntity<?> getNameAge (@RequestBody StudentDTo studentDTo) {
+    public ResponseEntity<?> getNameAge (@RequestBody StudentDTO studentDTo) {
         try {
             List<Student> student = studentService.getStudentByNameAndAge(studentDTo);
             return new ResponseEntity<>(student ,HttpStatus.OK);
@@ -66,7 +66,7 @@ public class StudentResource {
         }
     }
     @GetMapping("getScoreByStudentId")
-    public ResponseEntity<?> getScoreById (@RequestBody StudentDTo studentDTo) {
+    public ResponseEntity<?> getScoreById (@RequestBody StudentDTO studentDTo) {
         try {
             List<ScoreDto> scores = studentService.getScoreByStudentId(studentDTo.getId());
             return new ResponseEntity<>(scores ,HttpStatus.OK);
@@ -76,7 +76,7 @@ public class StudentResource {
     }
 
     @PostMapping("getScoreByStudentIdAndSubject")
-    public  ResponseEntity<?> getScoreByIdAndSubject (@RequestBody StudentDTo studentDTo) {
+    public  ResponseEntity<?> getScoreByIdAndSubject (@RequestBody StudentDTO studentDTo) {
         try {
             List<ScoreDto> scores2 = studentService.getScoreByStudentIdAndSubject(
                     studentDTo.getId(),
